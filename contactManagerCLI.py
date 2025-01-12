@@ -1,12 +1,18 @@
-print("=========Main Menu=========")
-print("1-Create new contact")
-print("2-Edit")
-print("3-Delete")
-print("4-Search")
-print("5-Show Contacts")
-print("6-Exit")
+from colorama import Fore
 
-#Dictionary (Data structure)
+print(Fore.YELLOW)
+
+print("======Menu======")
+print("1) Create new contact")
+print("2) Edit")
+print("3) Delete")
+print("4) Search")
+print("5) Show Contacts")
+print("6) Exit")
+
+print(Fore.RESET)
+
+#Dictuinary (Data Structure)
 contacts = {}
 
 while True :
@@ -15,19 +21,22 @@ while True :
     match item :
 
         case"1":
+            print(Fore.RED)
             name = input("Enter Name: ").lower()
 
             if name in contacts.keys():
-                print("This name already exists")
+                print("This name already existed")
 
             else:
                phone = input("Enter phone number: ")
                contacts[name] = phone
                print(f"contact {name} successfuly created")
+               print(Fore.RESET)
 
         case"2":
+            print(Fore.CYAN)
             print("1- Edit name")
-            print("2-Edit phone")
+            print("2- Add phone to an existing contact")
 
             itemEdit = input("Choose item: ")
 
@@ -38,18 +47,49 @@ while True :
                     newName = input("Enter new name: ").lower()
                     contacts[newName] = contacts[name]
                     del contacts[name]
-                    print(f"Name changed to {newName}")
+
                 else:
                     print(f"{name} doesn't exist")
 
-            elif itemEdit == "2":
-                name = input("Enter the name you want to edit phone number:").lower()
+            elif itemEdit == "2" :
+                name = input("Enter the name you want to add: ").lower()
                 if name in contacts.keys():
-                    newPhone = input("Enter new phone number: ")
-                    contacts[name] = newPhone
-                    print(f"Phone number {name} : {newPhone}")
+                    newPhone = newPhone = input("Enter new name: ").lower()
+                    contacts[name].append(newPhone)
+
                 else:
-                    print(f"{name} doesn't exist!")
-        
-        case "5":
+                    print(f"{name} doesn't exist")
+            print(Fore.RESET)
+                    
+        case"3":
+            print(Fore.MAGENTA)
+            nameDel = input("Enter the name you want to delete: ")
+
+            if nameDel in contacts.keys():
+                del contacts[nameDel]
+                print(f"{nameDel} Deleted")
+
+            else:
+                print(f"{nameDel} not found!")
+            print(Fore.RESET)
+
+        case"4":
+            print(Fore.LIGHTGREEN_EX)
+            find = input("Enter the name you want to find : ")
+
+            if find in contacts.keys():
+                print(contacts[find])
+            else:
+                print(f"{find} not found!")
+            print(Fore.RESET)
+
+        case"5":
+            print(Fore.LIGHTBLUE_EX)
             print(contacts)
+            print(Fore.RESET)
+
+        case"6":
+            print(Fore.LIGHTRED_EX)
+            print("Good Luck!!")
+            break
+            print(Fore.RESET)
