@@ -1,0 +1,7 @@
+numbers = input("Please Enter numbers: ").split()
+listNum = list(map(eval , numbers))
+print(max(listNum))
+print(min(listNum))
+print(sum(listNum))
+m1 , m2 = sum(listNum) , len(listNum)
+print (m1 / m2)
