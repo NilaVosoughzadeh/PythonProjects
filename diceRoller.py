@@ -62,7 +62,7 @@ while x == "y":
 
     x = input("Do you want to continue? ")
 
-    if x == "y":
+    if x == "yes":
         continue
     else:
         break
