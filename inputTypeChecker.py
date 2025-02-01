@@ -1,0 +1,8 @@
+name = input("Enter your name: ")
+family = input("Enter your family: ")
+age = eval(input("Enter your age: "))
+height = eval(input("Enter your height: "))
+print(f"{name} is " , type(name))
+print(f"{family} is " , type(family))
+print(f"{age} is " , type(age))
+print(f"{height} is " , type(height))
